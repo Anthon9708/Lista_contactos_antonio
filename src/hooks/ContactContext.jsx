@@ -1,11 +1,9 @@
 import { createContext, useReducer } from "react";
 
-// Estado inicial
 const initialState = {
   contacts: [],
 };
 
-// Tipos de acciones
 const actionTypes = {
   SET_CONTACTS: "SET_CONTACTS",
   ADD_CONTACT: "ADD_CONTACT",
@@ -13,7 +11,6 @@ const actionTypes = {
   DELETE_CONTACT: "DELETE_CONTACT",
 };
 
-// Reducer
 const contactReducer = (state, action) => {
   switch (action.type) {
     case actionTypes.SET_CONTACTS:
@@ -37,10 +34,8 @@ const contactReducer = (state, action) => {
   }
 };
 
-// Crear Context
 export const ContactContext = createContext();
 
-// Proveedor
 export const ContactProvider = ({ children }) => {
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
